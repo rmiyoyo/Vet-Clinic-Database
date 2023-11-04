@@ -154,8 +154,6 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Author**
 
 - GitHub: [@rmiyoyo](https://github.com/rmiyoyo)
@@ -167,8 +165,6 @@ Example:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **Query multiple tables**
 - [ ] **Appointment Scheduling System**
