@@ -78,3 +78,27 @@ CREATE TABLE visits (
     FOREIGN KEY (vet_id) REFERENCES vets (id)
 );
 
+ALTER TABLE visits
+ADD COLUMN id SERIAL;
+
+-- Rename visit_date column to date_of_visit
+ALTER TABLE visits RENAME COLUMN visit_date TO date_of_visit;
+
+ALTER TABLE visits
+ADD PRIMARY KEY (id);
+
+CREATE TABLE new_visits (
+    id SERIAL PRIMARY KEY,
+    animal_id INTEGER,
+    vet_id INTEGER,
+    date_of_visit DATE,
+    FOREIGN KEY (animal_id) REFERENCES animals (id),
+    FOREIGN KEY (vet_id) REFERENCES vets (id)
+);
+
+INSERT INTO new_visits (animal_id, vet_id, date_of_visit)
+SELECT animal_id, vet_id, date_of_visit
+FROM visits;
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
