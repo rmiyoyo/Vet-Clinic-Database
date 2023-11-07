@@ -100,5 +100,26 @@ INSERT INTO new_visits (animal_id, vet_id, date_of_visit)
 SELECT animal_id, vet_id, date_of_visit
 FROM visits;
 
+-- Drop the old 'visits' table
+DROP TABLE visits;
+
+-- Rename the new 'new_visits' table to 'visits'
+ALTER TABLE new_visits RENAME TO visits;
+
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+/* ===========
+ Create indexes on email, vet_id, and animal_id columns for optimization
+ =========== */
+--  Create an index on the `animal_id` column in the `visits` table
+CREATE INDEX idx_animal_id
+ON visits (animal_id);
+
+--  Create an index on the `vet_id` column in the `visits` table
+CREATE INDEX idx_vet_id
+ON visits (vet_id);
+
+--  Create an index on the `email` column of the `owners` table
+CREATE INDEX idx_email
+ON owners (email);
